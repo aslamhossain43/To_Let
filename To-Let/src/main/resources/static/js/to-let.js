@@ -128,10 +128,12 @@ if(table.length){
 		  mRender:function(data){
 			  				
 			  var str='';
-			 
+				
+			  str+='<a href="/updateAddservice?id='+data+'" id="dbtn" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>';
 			  str+='<a href="/delete?id='+data+'" id="dbtn" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>';
-			 
+				 
 			  return str;
+			 
 			  
 			  
 		  }

@@ -41,12 +41,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				
 				http.authorizeRequests().antMatchers("/","/register/**","/showAddservice/","/addservices/"
 						,"/view-by-categories/**","/json-category/**").permitAll();
-				http.authorizeRequests().antMatchers("/delete/**").hasAuthority("ADMIN");
+				http.authorizeRequests().antMatchers("/delete/**","/updateAddservice/**").hasAuthority("ADMIN");
 				http.authorizeRequests().antMatchers("/user/**").hasAuthority("USER")
 				.anyRequest().authenticated().and().formLogin().loginPage("/login")
 				.successHandler(new CustomAuthenticationSuccess()).failureHandler(new CustomAuthenticationFailure())
 				.permitAll().and().logout().permitAll()
-				.and().exceptionHandling().accessDeniedPage("/403");
+				.and().exceptionHandling().accessDeniedPage("/403").and().csrf().disable();
 	}
 	
 

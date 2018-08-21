@@ -22,7 +22,8 @@ public interface AddServiceRepository extends JpaRepository<AddService, Long>,Jp
         	//find by category
         	public static final String country="FROM AddService where country=:country";
                 	@Query(country)
-			public List<AddService> findByCountryry(@Param("country")String country); 
+			public List<AddService> findByCountry(@Param("country")String country);
+                	
         
         
         

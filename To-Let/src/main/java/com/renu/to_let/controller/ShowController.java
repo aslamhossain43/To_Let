@@ -2,15 +2,19 @@ package com.renu.to_let.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.renu.to_let.addservice_repository.AddServiceRepository;
+
 @Controller
 public class ShowController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ShowController.class);
-
+   @Autowired
+	private AddServiceRepository addServiceRepository;
 	@RequestMapping(value = "/view-services")
 	public String viewServices(Model model) {
 		LOGGER.info("From class:ShowController,,method : viewServices");
@@ -33,13 +37,14 @@ public class ShowController {
 	}
 
 	@RequestMapping(value = "/view-by-countries")
+
 	public String viewByCountry(@RequestParam("country") String country, Model model) {
 		LOGGER.info("From class:ShowController,,method : viewByCountry");
 		LOGGER.info("get by @RequestParam : " + country);
 		model.addAttribute("heading", "Available Services");
 		model.addAttribute("title", "Viewservices");
-		model.addAttribute("jsonurl", "/json-country?country=" + country);
-
+		model.addAttribute("databycountry",addServiceRepository.findByCountry(country));
+		
 		return "view-by-country";
 	}
 

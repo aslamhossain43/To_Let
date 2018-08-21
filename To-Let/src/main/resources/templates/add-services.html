@@ -31,13 +31,27 @@
 th:object="${services}" method="post" enctype="multipart/form-data">
 
 
+
+
+
+<div class="form-group">
+<label for="id" class="col-lg-2 control-label"></label>
+<div class="col-lg-8">
+<input type="hidden" class="form-control" id="id" th:field="*{id}" th:value="${services.id}" placeholder=" Upload a video" autocomplete="off">
+</div>
+</div>
+
+
+
+
 <div class="form-group blu-margin">
 <label for="rentTypes" class="col-lg-2 control-label">Rent Type : </label>
 <div class="col-lg-8">
-<select class="form-control" id="rentTypes" name="rentType">
+<select class="form-control" id="rentTypes"  th:field="*{rentType}">
+
 <option th:value="Office" th:text="Office"></option>
 
-<option th:value="Mess" th:text="Mess"></option>
+ <option th:value="Mess" th:text="Mess"></option>
 
 <option th:value="Hotel" th:text="Hotel"></option>
 
@@ -45,8 +59,7 @@ th:object="${services}" method="post" enctype="multipart/form-data">
 
 <option th:value="Garage" th:text="Garage"></option>
 
-<option th:value="Factory" th:text="Factory"></option>
-
+<option  th:value="Factory" th:text="Factory"></option>
 
 <option th:value="Plot" th:text="Plot"></option>
 
@@ -54,8 +67,8 @@ th:object="${services}" method="post" enctype="multipart/form-data">
 
 <option th:value="Others" th:text="Others"></option>
 
-
 </select>
+
 </div>
 </div>
 
@@ -63,14 +76,14 @@ th:object="${services}" method="post" enctype="multipart/form-data">
 <div class="form-group">
 <label for="video" class="col-lg-2 control-label">Upload a video(optional) : </label>
 <div class="col-lg-8">
-<input type="file" class="form-control" id="video" name="vFile" placeholder=" Upload a video" autocomplete="off">
+<input type="file" class="form-control" id="video" th:field="*{vFile}"  placeholder=" Upload a video" autocomplete="off">
 </div>
 </div>
 
 <div class="form-group">
 <label for="image" class="col-lg-2 control-label">Upload a image(mandatory) : </label>
 <div class="col-lg-8">
-<input type="file" class="form-control" id="image" name="iFile" placeholder=" Upload an image " autocomplete="off">
+<input type="file" class="form-control" id="image" th:field="*{iFile}" placeholder=" Upload an image " autocomplete="off">
 </div>
 </div>
 
@@ -79,7 +92,7 @@ th:object="${services}" method="post" enctype="multipart/form-data">
 <div class="form-group">
 <label for="country" class="col-lg-2 control-label">Country Name : </label>
 <div class="col-lg-8">
-<input type="text" class="form-control" id="country" name="country" placeholder=" Enter Country Name" autocomplete="off">
+<input type="text" class="form-control" id="country" th:field="*{country}" th:value="${services.country}" placeholder=" Enter Country Name" autocomplete="off">
 </div>
 </div>
 
@@ -87,7 +100,7 @@ th:object="${services}" method="post" enctype="multipart/form-data">
 <div class="form-group">
 <label for="district" class="col-lg-2 control-label">District Name : </label>
 <div class="col-lg-8">
-<input type="text" class="form-control" id="district" name="district" placeholder=" Enter District Name" autocomplete="off">
+<input type="text" class="form-control" id="district" th:field="*{district}" th:value="${services.district}" placeholder=" Enter District Name" autocomplete="off">
 </div>
 </div>
 
@@ -95,7 +108,7 @@ th:object="${services}" method="post" enctype="multipart/form-data">
 <div class="form-group">
 <label for="subDistrict" class="col-lg-2 control-label">Sub-District Name : </label>
 <div class="col-lg-8">
-<input type="text" class="form-control" id="subDistrict" name="subDistrict" placeholder=" Enter Sub -District Name" autocomplete="off">
+<input type="text" class="form-control" id="subDistrict" th:field="*{subDistrict}" th:value="${services.subDistrict}" placeholder=" Enter Sub -District Name" autocomplete="off">
 </div>
 </div>
 
@@ -103,7 +116,7 @@ th:object="${services}" method="post" enctype="multipart/form-data">
 <div class="form-group">
 <label for="detailsAddress" class="col-lg-2 control-label">Details Address : </label>
 <div class="col-lg-8">
-<input type="text" class="form-control" id="detailsAddress" name="detailsAddress" placeholder=" Enter Details Address" autocomplete="off">
+<input type="text" class="form-control" id="detailsAddress" th:field="*{detailsAddress}" th:value="${services.detailsAddress}" placeholder=" Enter Details Address" autocomplete="off">
 </div>
 </div>
 
@@ -112,7 +125,7 @@ th:object="${services}" method="post" enctype="multipart/form-data">
 <div class="form-group">
 <label for="serviceDescription" class="col-lg-2 control-label">service Description : </label>
 <div class="col-lg-8">
-<input type="text" class="form-control" id="serviceDescription" name="serviceDescription" placeholder=" Enter Service Description" autocomplete="off">
+<input type="text" class="form-control" id="serviceDescription" th:field="*{serviceDescription}" th:value="${services.serviceDescription}" placeholder=" Enter Service Description" autocomplete="off">
 </div>
 </div>
 
@@ -120,7 +133,7 @@ th:object="${services}" method="post" enctype="multipart/form-data">
 <div class="form-group">
 <label for="contact" class="col-lg-2 control-label">Contact  : </label>
 <div class="col-lg-8">
-<input type="text" class="form-control" id="contact" name="contact" placeholder=" Enter Contact" autocomplete="off">
+<input type="text" class="form-control" id="contact" th:field="*{contact}" th:value="${services.contact}" placeholder=" Enter Contact" autocomplete="off">
 </div>
 </div>
 

@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.renu.to_let.addservice_repository.AddServiceRepository;
 import com.renu.to_let.models.AddService;
@@ -23,13 +24,22 @@ public class ServiceController {
 	@Autowired
 	private AddServiceRepository addServiceRepository;
 	
-	
+
 	@RequestMapping(value="/showAddservice")
 	public String showAddService(Model model) {
 		LOGGER.info("From showService method");
 		model.addAttribute("services", new AddService());
 		model.addAttribute("title","AddServices");
-		
+		return "add-services";
+	}
+	
+	
+	@RequestMapping(value="/updateAddservice",method=RequestMethod.GET)
+	public String showupdateAddService(@RequestParam("id") long id, Model model) {
+		LOGGER.info("From showupdateAddService method");
+		AddService addService=addServiceRepository.getOne(id);
+		model.addAttribute("title","AddServices");
+		model.addAttribute("services", addService);
 		return "add-services";
 	}
 	
@@ -48,6 +58,7 @@ public class ServiceController {
 		if (!services.getiFile().getOriginalFilename().equals("")) {
 			FileUploadUtility.imageUploadFile(iRequest, services.getiFile(),services.getiCode());
 		}
+		
 		addServiceRepository.save(services);
 		
 		model.addAttribute("message", "Your operation has been completed successfully !!!");
