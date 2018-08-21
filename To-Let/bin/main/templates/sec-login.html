@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header-css :: header-css"></head>
+
+<body>
+<div class="preLoader">	</div> 
+	<div th:replace="fragments/nav-bar :: nav-bar"></div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-6 col-lg-offset-3">
+
+              <br>
+              <div th:if="${logout}" class="alert alert-info fade in">You have been logged out successfully</div>
+			 <div th:if="${error}" class="alert alert-info fade in">Invalid username and password.</div>
+					
+              <br>
+
+
+                 <fieldset>
+				<form class="form-horizontal" role="form" th:action="@{/login}" method="post">
+
+					<div class="form-group">
+						<label for="email" class="col-lg-2 control-label">Email:</label>
+						<div class="col-lg-8">
+
+							<input type="email" class="form-control"  name="username"
+							 id="email" placeholder="Enter Email" autocomplete="off">
+
+
+						</div>
+					</div>
+                       
+
+					<div class="form-group">
+			       <label for="password" class="col-lg-2  control-label">Password:</label>
+						<div class="col-lg-8">
+							<input type="password" class="form-control"
+							 name="password" id="password"   placeholder="Enter Password"  autocomplete="off">
+						
+						</div>
+					</div>
+                  
+                  
+                  
+					<div class="forn-group">
+						<div class="col-lg-2 col-lg-offset-3">
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</div>
+					</div>
+
+
+				</form>
+				</fieldset>
+				<br><br><br>
+
+                   
+						<a href="/registration" class="col-lg-4 col-lg-offset-4"> New Registration</a>
+			
+			</div>
+		
+		</div>
+		
+	</div>
+	<div th:replace="fragments/footer-js::footer-js"></div>
+</body>
+</html>

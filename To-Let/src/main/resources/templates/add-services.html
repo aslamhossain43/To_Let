@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/header-css :: header-css"></head>
+
+	
+	<body>
+	
+	
+<div class="preLoader">	</div> 
+	<div th:replace="fragments/nav-bar :: nav-bar"></div>
+
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-10 col-lg-offset-1">
+
+<br>
+<div th:if="${message}">
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+<div class="alert alert-info fade in" th:text="${message}"></div>
+</div>
+</div>
+</div>
+<br>
+
+<fieldset>
+
+
+<form class="form-horizontal" role="form" th:action="@{/addservices}" 
+th:object="${services}" method="post" enctype="multipart/form-data">
+
+
+<div class="form-group blu-margin">
+<label for="rentTypes" class="col-lg-2 control-label">Rent Type : </label>
+<div class="col-lg-8">
+<select class="form-control" id="rentTypes" name="rentType">
+<option th:value="Office" th:text="Office"></option>
+
+<option th:value="Mess" th:text="Mess"></option>
+
+<option th:value="Hotel" th:text="Hotel"></option>
+
+<option th:value="Flat" th:text="Flat"></option>
+
+<option th:value="Garage" th:text="Garage"></option>
+
+<option th:value="Factory" th:text="Factory"></option>
+
+
+<option th:value="Plot" th:text="Plot"></option>
+
+<option th:value="Commercial-space" th:text="Commercial-space"></option>
+
+<option th:value="Others" th:text="Others"></option>
+
+
+</select>
+</div>
+</div>
+
+
+<div class="form-group">
+<label for="video" class="col-lg-2 control-label">Upload a video(optional) : </label>
+<div class="col-lg-8">
+<input type="file" class="form-control" id="video" name="vFile" placeholder=" Upload a video" autocomplete="off">
+</div>
+</div>
+
+<div class="form-group">
+<label for="image" class="col-lg-2 control-label">Upload a image(mandatory) : </label>
+<div class="col-lg-8">
+<input type="file" class="form-control" id="image" name="iFile" placeholder=" Upload an image " autocomplete="off">
+</div>
+</div>
+
+
+
+<div class="form-group">
+<label for="country" class="col-lg-2 control-label">Country Name : </label>
+<div class="col-lg-8">
+<input type="text" class="form-control" id="country" name="country" placeholder=" Enter Country Name" autocomplete="off">
+</div>
+</div>
+
+
+<div class="form-group">
+<label for="district" class="col-lg-2 control-label">District Name : </label>
+<div class="col-lg-8">
+<input type="text" class="form-control" id="district" name="district" placeholder=" Enter District Name" autocomplete="off">
+</div>
+</div>
+
+
+<div class="form-group">
+<label for="subDistrict" class="col-lg-2 control-label">Sub-District Name : </label>
+<div class="col-lg-8">
+<input type="text" class="form-control" id="subDistrict" name="subDistrict" placeholder=" Enter Sub -District Name" autocomplete="off">
+</div>
+</div>
+
+
+<div class="form-group">
+<label for="detailsAddress" class="col-lg-2 control-label">Details Address : </label>
+<div class="col-lg-8">
+<input type="text" class="form-control" id="detailsAddress" name="detailsAddress" placeholder=" Enter Details Address" autocomplete="off">
+</div>
+</div>
+
+
+
+<div class="form-group">
+<label for="serviceDescription" class="col-lg-2 control-label">service Description : </label>
+<div class="col-lg-8">
+<input type="text" class="form-control" id="serviceDescription" name="serviceDescription" placeholder=" Enter Service Description" autocomplete="off">
+</div>
+</div>
+
+
+<div class="form-group">
+<label for="contact" class="col-lg-2 control-label">Contact  : </label>
+<div class="col-lg-8">
+<input type="text" class="form-control" id="contact" name="contact" placeholder=" Enter Contact" autocomplete="off">
+</div>
+</div>
+
+
+
+
+
+<div class="forn-group">
+<div class="col-lg-2 col-lg-offset-5">
+<button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</div>
+
+</form>
+</fieldset>
+
+</div>
+</div>
+	
+	
+</div>
+<div th:replace="fragments/footer-js::footer-js"></div>
+</body>
+	
+</html>

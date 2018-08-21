@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header-css :: header-css"></head>
+
+<body>
+<div class="preLoader">	</div> 
+<div th:replace="fragments/nav-bar :: nav-bar"></div>
+<div class="container-fluid ">
+<div class="row">
+<div class="col-lg-10 col-lg-offset-1">
+
+<br>
+<div th:if="${message}">
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+<div class="alert alert-info fade in" th:text="${message}"></div>
+</div>
+</div>
+</div>
+<br>
+
+<fieldset>
+<form class="form-horizontal" role="form" name="userForm" th:action="@{/registration}" method="post">
+
+<div class="form-group">
+<label for="firstname" class="col-lg-2 control-label">First Name : </label>
+<div class="col-lg-10">
+<input type="text" class="form-control" id="firstname" name="firstName" placeholder=" Enter First Name" autocomplete="off">
+</div>
+</div>
+
+<div class="form-group">
+<label for="lastname" class="col-lg-2 control-label">Last Name : </label>
+<div class="col-lg-10">
+<input type="text" class="form-control" id="lastname" name="lastName" placeholder=" Enter Last Name" autocomplete="off">
+</div>
+</div>
+
+<div class="form-group">
+<label for="email" class="col-lg-2 control-label">Email : </label>
+<div class="col-lg-10">
+<input type="email" class="form-control" id="email" name="username" placeholder=" Enter Email" autocomplete="off">
+</div>
+</div>
+
+<div class="form-group">
+<label for="password" class="col-lg-2 control-label">Password : </label>
+<div class="col-lg-10">
+<input type="password" class="form-control" id="password" name="password" placeholder=" Enter Password" autocomplete="off">
+</div>
+</div>
+
+
+
+<div class="form-group">
+<label for="confirmpassword" class="col-lg-2 control-label">Confirm Password</label>
+<div class="col-lg-10">
+<input type="password" class="form-control" id="confirmpassword" name="confirmPassword" placeholder=" Enter Confirm Password" autocomplete="off">
+</div>
+</div>
+
+
+<div class="form-group">
+<label for="country" class="col-lg-2 control-label">Country : </label>
+<div class="col-lg-10">
+<input type="text" class="form-control" id="country" name="country" placeholder=" Enter Country Name" autocomplete="off">
+</div>
+</div>
+
+
+<div class="form-group">
+<label for="detailaddress" class="col-lg-2 control-label">Detail Address : </label>
+<div class="col-lg-10">
+<textarea class="form-control" id="detailaddress" name="detailAddress" placeholder=" Enter Detail Address" autocomplete="off"></textarea>
+</div>
+</div>
+
+
+
+
+
+
+	<div class="form-group">
+		<label class="control-label col-lg-2">Select Role :</label>
+		<div class="col-lg-10">
+			<label class="checkbox-inline">
+			<input type="checkbox" name="roles" value="ADMIN"/>Admin 				
+			</label>
+			<label class="checkbox-inline">
+				 <input type="checkbox" name="roles" value="USER" />User
+			</label>
+		</div>
+	</div> 	
+
+<div class="forn-group">
+<div class="col-lg-2 col-lg-offset-5">
+<button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</div>
+
+</form>
+</fieldset>
+</div>
+</div>
+</div>
+<div th:replace="fragments/footer-js::footer-js"></div>
+</body>
+</html>
