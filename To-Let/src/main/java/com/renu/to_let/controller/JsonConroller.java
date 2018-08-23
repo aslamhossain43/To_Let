@@ -39,23 +39,22 @@ public List<AddService>getAllServices(){
 
 @RequestMapping(value="/json-category")
 @ResponseBody
-public List<AddService>getByCategory(@RequestParam("category") String category){
+public List<AddService>getByCategory(){
 	LOGGER.info("From class:JsonController,,method : getByCategory");
-	LOGGER.info( "get by @RequestParam "+category);
 	
-	return addServiceRepository.findByCategory(category);
+	LOGGER.info( "get value : "+ShowController.categories);
+	
+	return addServiceRepository.findByCategory(ShowController.categories);
 	
 }
 
 
 @RequestMapping(value="/json-country-category")
 @ResponseBody
-public List<AddService>getByCountryCategory(@RequestParam("category") String category,
-		@RequestParam("country") String country){
+public List<AddService>getByCountryCategory(){
 	LOGGER.info("From class:JsonController,,method : getByCountryCategory");
-	LOGGER.info( "get by @RequestParam "+category+" and "+country);
-	
-	return addServiceRepository.findByCountryCategory(category, country);
+	LOGGER.info("get values : "+ShowController.category +" and "+ShowController.country);
+	return addServiceRepository.findByCountryCategory(ShowController.category, ShowController.country);
 	
 }
 

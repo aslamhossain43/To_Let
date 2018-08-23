@@ -1,5 +1,7 @@
 package com.renu.to_let.controller;
 
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,9 @@ public class ShowController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ShowController.class);
    @Autowired
 	private AddServiceRepository addServiceRepository;
+   public static String categories="";
+   public static String category="";
+   public static String country="";
 	@RequestMapping(value = "/view-services")
 	public String viewServices(Model model) {
 		LOGGER.info("From class:ShowController,,method : viewServices");
@@ -26,12 +31,14 @@ public class ShowController {
 	}
 
 	@RequestMapping(value = "/view-by-categories")
-	public String viewByCategory(@RequestParam("rentTypes") String categories, Model model) {
+	public String viewByCategory(@RequestParam("rentTypes") String category, Model model) {
 		LOGGER.info("From class:ShowController,,method : viewByCategory");
 		LOGGER.info("get by @RequestParam : " + categories);
 		model.addAttribute("heading", "Available Services");
 		model.addAttribute("title", "Viewservices");
-		model.addAttribute("jsonurl", "/json-category?category=" + categories);
+		categories=category;
+		addServiceRepository.findByCategory(categories);
+		model.addAttribute("jsonurl", "/json-category");
 
 		return "view-by-category";
 	}
@@ -52,12 +59,15 @@ public class ShowController {
 	}
 
 	@RequestMapping(value = "/view-by-categories-countries")
-	public String viewByCountryCategory(@RequestParam("rentTypes") String categories,@RequestParam("countries") String countries, Model model) {
+	public String viewByCountryCategory(@RequestParam Map<String,String> requesrParam, Model model){
 		LOGGER.info("From class:ShowController,,method : viewByCountryCategory");
-		LOGGER.info("get by @RequestParam : " + categories+" ,"+countries);
+		category=requesrParam.get("rentTypes");
+		country=requesrParam.get("countries");
+		LOGGER.info("get by @RequestParam : " + category+" ,"+country);
 		model.addAttribute("heading", "Available Services");
 		model.addAttribute("title", "Viewservices");
-		model.addAttribute("jsonurl", "/json-country-category?category=" + categories+"&country="+countries);
+		addServiceRepository.findByCountryCategory(category, country);
+		model.addAttribute("jsonurl", "/json-country-category");
 		
 		return "view-by-category";
 	}

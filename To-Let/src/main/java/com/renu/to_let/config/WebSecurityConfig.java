@@ -40,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				
 				
 				http.authorizeRequests().antMatchers("/**","/register/**","/showAddservice/","/addservices/"
-						,"/view-by-categories/**","/json-category/**").permitAll();
+						,"/view-by-categories/**","/json-category/**","/view-by-categories-countries/**","/json-country-category/**").permitAll();
 				http.authorizeRequests().antMatchers("/delete/**","/updateAddservice/**").hasAuthority("ADMIN");
 				http.authorizeRequests().antMatchers("/user/**").hasAuthority("USER")
 				.anyRequest().authenticated().and().formLogin().loginPage("/login")
