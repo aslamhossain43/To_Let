@@ -24,31 +24,28 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public AuthenticationManager AuthenticationManagerBean() throws Exception {
-		
-		
+
 		return super.authenticationManagerBean();
 	}
-	
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		
-		http.authorizeRequests().antMatchers("/resources/**","/loginError", "/registration")
-		        
+
+		http.authorizeRequests().antMatchers("/resources/**", "/loginError", "/registration")
+
 				.permitAll();
-				http.authorizeRequests().antMatchers("/webjars/**","/css/**","/js/**","/images/**").permitAll();
-				
-				
-				http.authorizeRequests().antMatchers("/**","/register/**","/showAddservice/","/addservices/"
-						,"/view-by-categories/**","/json-category/**","/view-by-categories-countries/**","/json-country-category/**").permitAll();
-				http.authorizeRequests().antMatchers("/delete/**","/updateAddservice/**").hasAuthority("ADMIN");
-				http.authorizeRequests().antMatchers("/user/**").hasAuthority("USER")
-				.anyRequest().authenticated().and().formLogin().loginPage("/login")
-				.successHandler(new CustomAuthenticationSuccess()).failureHandler(new CustomAuthenticationFailure())
-				.permitAll().and().logout().permitAll()
-				.and().exceptionHandling().accessDeniedPage("/403").and().csrf().disable();
+		http.authorizeRequests().antMatchers("/webjars/**", "/css/**", "/js/**", "/images/**").permitAll();
+
+		http.authorizeRequests()
+				.antMatchers("/**", "/register/**", "/showAddservice/", "/addservices/", "/view-by-categories/**",
+						"/json-category/**", "/view-by-categories-countries/**", "/json-country-category/**")
+				.permitAll();
+		http.authorizeRequests().antMatchers("/delete/**", "/updateAddservice/**").hasAuthority("ADMIN");
+		http.authorizeRequests().antMatchers("/user/**").hasAuthority("USER").anyRequest().authenticated().and()
+				.formLogin().loginPage("/login").successHandler(new CustomAuthenticationSuccess())
+				.failureHandler(new CustomAuthenticationFailure()).permitAll().and().logout().permitAll().and()
+				.exceptionHandling().accessDeniedPage("/403").and().csrf().disable();
 	}
-	
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
