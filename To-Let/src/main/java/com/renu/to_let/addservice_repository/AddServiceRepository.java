@@ -27,7 +27,6 @@ public interface AddServiceRepository extends JpaRepository<AddService, Long>,Jp
                 	@Query(countryCategory)
 					public List<AddService> findByCountryCategory(@Param("category")String category,@Param("country")String country);
                 	
-        
-        
+            
         
 }
