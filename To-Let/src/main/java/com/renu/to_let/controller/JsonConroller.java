@@ -48,6 +48,17 @@ public List<AddService>getByCategory(@RequestParam("category") String category){
 }
 
 
+@RequestMapping(value="/json-country-category")
+@ResponseBody
+public List<AddService>getByCountryCategory(@RequestParam("category") String category,
+		@RequestParam("country") String country){
+	LOGGER.info("From class:JsonController,,method : getByCountryCategory");
+	LOGGER.info( "get by @RequestParam "+category+" and "+country);
+	
+	return addServiceRepository.findByCountryCategory(category, country);
+	
+}
+
 
 
 @RequestMapping(value="/delete")

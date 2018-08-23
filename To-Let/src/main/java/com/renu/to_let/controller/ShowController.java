@@ -35,6 +35,9 @@ public class ShowController {
 
 		return "view-by-category";
 	}
+	
+	
+	
 
 	@RequestMapping(value = "/view-by-countries")
 
@@ -48,4 +51,14 @@ public class ShowController {
 		return "view-by-country";
 	}
 
+	@RequestMapping(value = "/view-by-categories-countries")
+	public String viewByCountryCategory(@RequestParam("rentTypes") String categories,@RequestParam("countries") String countries, Model model) {
+		LOGGER.info("From class:ShowController,,method : viewByCountryCategory");
+		LOGGER.info("get by @RequestParam : " + categories+" ,"+countries);
+		model.addAttribute("heading", "Available Services");
+		model.addAttribute("title", "Viewservices");
+		model.addAttribute("jsonurl", "/json-country-category?category=" + categories+"&country="+countries);
+		
+		return "view-by-category";
+	}
 }

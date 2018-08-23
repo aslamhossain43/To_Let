@@ -23,11 +23,11 @@
                      <div th:each="v:${databycountry}">
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <a th:href="@{/view-by-categories?rentTypes=__${v.getRentType()}__}">
+                            <a th:href="@{/view-by-categories-countries(rentTypes=${v.getRentType()},countries=${v.getCountry()})}">
                             <img id="rentType" th:src="@{images/__${v.getiCode()}__.jpg}" alt=""></a>
                             <div class="caption">
                                 
-                                <h4><a th:href="@{/view-by-categories?rentTypes=__${v.getRentType()}__}" th:text="${v.getRentType()}"></a>
+                                <h4><a th:href="@{/view-by-categories(rentTypes=${v.getRentType()})}" th:text="${v.getRentType()}"></a>
                                 </h4>
                               
                             </div>
