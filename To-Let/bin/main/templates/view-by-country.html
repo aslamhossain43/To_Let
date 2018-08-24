@@ -27,7 +27,7 @@
                             <img id="rentType" th:src="@{images/__${v.getiCode()}__.jpg}" alt=""></a>
                             <div class="caption">
                                 
-                                <h4><a th:href="@{/view-by-categories(rentTypes=${v.getRentType()})}" th:text="${v.getRentType()}"></a>
+                                <h4><a th:href="@{/view-by-categories-countries?rentTypes=__${v.getRentType()}__&countries=__${v.getCountry()}__}" th:text="${v.getRentType()}"></a>
                                 </h4>
                               
                             </div>
