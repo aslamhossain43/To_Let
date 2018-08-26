@@ -30,6 +30,18 @@ public class ShowController {
 
 		return "view-services";
 	}
+	
+	
+	@RequestMapping(value = "/manage-view-services")
+	public String manageViewServices(Model model) {
+		LOGGER.info("From class:ShowController,,method : viewServices");
+		model.addAttribute("heading", "Available Services");
+		model.addAttribute("title", "Manage-View-Services");
+		model.addAttribute("jsonurl", "/viewServices");
+
+		return "manage-view-services";
+	}
+	
 
 	@RequestMapping(value = "/view-by-categories")
 	public String viewByCategory(@RequestParam("rentTypes") String category, Model model) {
