@@ -30,7 +30,7 @@
 
 <div class="container-fluid">
 <div class="table-responsive">
-<th:block>
+
 <table id="viewServices" class="table table-striped table-bordered">
 
 <thead>
@@ -45,13 +45,14 @@
 <th>Address Details</th>
 <th>Service Description</th>
 <th>Contact</th>
-
+<th th:if="${role}=='USER'or'ADMIN'">Uploaded Date and Time</th>
+<th th:if="${role}=='USER'or'ADMIN'"></th>
 
 </tr>
 </thead>
 
 </table>
-</th:block>
+
 
 
 

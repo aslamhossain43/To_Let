@@ -14,7 +14,6 @@ public interface AddServiceRepository extends JpaRepository<AddService, Long>,Jp
 	//get all services
 	@Query("FROM AddService")
 	public List<AddService>getServicesTable();
-	
 	//find by category
 	public static final String category="FROM AddService where rentType=:category";
         	@Query(category)

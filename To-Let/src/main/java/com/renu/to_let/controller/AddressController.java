@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
+
 import com.renu.to_let.addservice_repository.AddServiceRepository;
 import com.renu.to_let.models.AddService;
 
@@ -28,6 +29,8 @@ public class AddressController {
 	
 	
 	
+	
+	
 	@ModelAttribute("uniquecountry")
 	public Set<String> getAllUniqueCountries() {
 		LOGGER.info("From class : AddressController,method : getAllUniqueCountries()");
@@ -43,34 +46,8 @@ public class AddressController {
 
 	}
 	
-	@ModelAttribute("uniquecategory")
-	public Set<String> getAllUniqueCategories() {
-		LOGGER.info("From class : AddressController,method :  getAllUniqueCategories()");
-		Set<String>uniquecategory=new HashSet<>();
-		
-		
-		for(AddService addService:addServiceRepository.getServicesTable()) {
-			uniquecategory.add(addService.getRentType());
-		}
-		
-		return uniquecategory;
-
-	}
 	
-	@ModelAttribute("uniqueimage")
-	public Set<String> getAllUniqueImage() {
-		LOGGER.info("From class : AddressController,method :  getAllUniqueImage()");
-		Set<String>uniqueimage=new HashSet<>();
-		
-		
-		for(AddService addService:addServiceRepository.getServicesTable()) {
-			uniqueimage.add(addService.getiCode());
-			
-		}
-		
-		return uniqueimage;
-
-	}
+	
 	
 
 }

@@ -20,6 +20,7 @@ import com.renu.to_let.web.repository.UserRepository;
 
 @Component
 public class UserDetailsServiceImpl implements UserDetailsService {
+	
 	@Autowired
 	UserRepository userRepository;
 
