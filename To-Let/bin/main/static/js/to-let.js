@@ -128,7 +128,7 @@ if(table.length){
 	  ,
 	  {
 		  
-		  data:'createdDate',
+		  data:'lastModifiedDate',
 		  mRender:function(data){
 			  				
 			  var str='';

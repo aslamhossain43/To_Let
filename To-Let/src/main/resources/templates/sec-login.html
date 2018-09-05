@@ -8,7 +8,19 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3">
-
+        
+        
+        <br>
+<div th:if="${message}">
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+<div class="alert alert-info fade in" th:text="${message}"></div>
+</div>
+</div>
+</div>
+      
+        
+        
               <br>
               <div th:if="${logout}" class="alert alert-info fade in">You have been logged out successfully</div>
 			 <div th:if="${error}" class="alert alert-info fade in">Invalid username and password.</div>
@@ -43,19 +55,22 @@
                   
                   
 					<div class="forn-group">
-						<div class="col-lg-2 col-lg-offset-3">
+						<div class="col-lg-2 col-lg-offset-2">
 							<button type="submit" class="btn btn-primary">Submit</button>
 						</div>
 					</div>
-
-
+                     
 				</form>
 				</fieldset>
-				<br><br><br>
+						
+						<a id="fp" href="/set-forgotten-password" class="col-lg-4 col-lg-offset-4"> Forgotten Password ?</a>
+			
+				   
+						<a id="nr" href="/registration" class="col-lg-4 col-lg-offset-6"> New Registration ?</a>
+			
+			
 
                    
-						<a href="/registration" class="col-lg-4 col-lg-offset-4"> New Registration</a>
-			
 			</div>
 		
 		</div>

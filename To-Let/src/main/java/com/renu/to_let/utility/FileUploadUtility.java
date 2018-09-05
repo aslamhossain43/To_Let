@@ -12,8 +12,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class FileUploadUtility {
 
-	private static final String VABS_PATH = "H:\\STS_Github\\To_Let\\To-Let\\src\\main\\resources\\static\\videos\\";
-	private static final String IABS_PATH = "H:\\STS_Github\\To_Let\\To-Let\\src\\main\\resources\\static\\images\\";
+	public static final String VABS_PATH = "H:\\STS_Github\\To_Let\\To-Let\\src\\main\\resources\\static\\videos\\";
+	public static final String IABS_PATH = "H:\\STS_Github\\To_Let\\To-Let\\src\\main\\resources\\static\\images\\";
 
 	 
 	private static final Logger logger = LoggerFactory.getLogger(FileUploadUtility.class);

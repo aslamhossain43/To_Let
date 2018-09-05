@@ -1,5 +1,6 @@
 package com.renu.to_let.controller;
 
+import java.io.File;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.renu.to_let.addservice_repository.AddServiceRepository;
 import com.renu.to_let.models.AddService;
+import com.renu.to_let.utility.FileUploadUtility;
 
 @Controller
 public class JsonConroller {
@@ -52,6 +54,19 @@ public class JsonConroller {
 
 	@RequestMapping(value = "/delete")
 	public String deleteById(@RequestParam("id") long id, Model model) {
+		AddService addService=addServiceRepository.getOne(id);
+		String vCode=addService.getvCode();
+		String iCode=addService.getiCode();
+		LOGGER.info("Getting vCode : "+vCode);
+		LOGGER.info("Getting iCode : "+iCode);
+		File vFile=new File(FileUploadUtility.VABS_PATH+vCode+".mp4");
+		File iFile=new File(FileUploadUtility.IABS_PATH+iCode+".jpg");
+		if (vFile.exists()) {
+			vFile.delete();
+		}
+		if (iFile.exists()) {
+			iFile.delete();
+		}
 		addServiceRepository.deleteById(id);
 		model.addAttribute("message", id + "  Number id has been deleted successfully !!!");
 		model.addAttribute("heading", "Available Services");
